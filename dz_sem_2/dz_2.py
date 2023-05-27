@@ -5,19 +5,22 @@
 # количество монет, которые нужно перевернуть.
 # 5 -> 1 0 1 1 0
 # 2
-n = int(input())
-count_zero = 0
-count_one = 0
-for i in range(n):
-x = int(input())
-if x == 0:
-count_zero += 1
-else:
-count_one += 1
-if count_one > count_zero:
-print(count_zero)
-else:
-print(count_one)
+
+# import random
+# n = 11 # number of coins
+# count_tails = 0
+# count_eagle = 0
+# for i in range(n):
+#     number = random.randrange(0, 2)
+#     print(f"i:{i}, number:{number}")
+#     if number == 0:
+#         count_tails += 1
+#     else:
+#         count_eagle += 1
+# if count_tails > count_eagle:
+#     print(f"count_tails: {count_tails}")
+# else:
+#     print(f"count_eagle: {count_eagle}")
 
 # Задача 12: Петя и Катя – брат и сестра. Петя – студент, а Катя –
 # школьница. Петя помогает Кате по математике. Он задумывает два
@@ -26,13 +29,33 @@ print(count_one)
 # произведение P. Помогите Кате отгадать задуманные Петей числа.
 # 4 4 -> 2 2
 # 5 6 -> 2 3
-
-
-
+# ---------------------
+# sum = 4
+# prod = 4
+# # y^2 - y*sum + prod
+# a = 1
+# b = -sum
+# c = prod
+# # D = b^2 - 4ac
+# D = b**2 - 4 * a * c
+# print(D)
+# -------------------
+# x = 4
+# y = 4
+# for i in range(x):
+#     for j in range(y):
+#         if x == i + j and y == i * j:
+#             print(i, j)
+# -------------------
 # Задача 14: Требуется вывести все целые степени двойки (т.е. числа
 # вида 2k), не превосходящие числа N.
 # 10 -> 1 2 4 8
-
+n = 10
+i = 0
+while 2 ** i <= n:
+    print(2 ** i)
+    i += 1
+# -------------------
 # 1 Задайте список из нескольких чисел. Напишите программу,
 # которая найдёт сумму элементов списка,
 # стоящих на нечётной позиции.

@@ -32,30 +32,30 @@
 # 6
 # -> 5
 # ------------ РЕШЕНИЕ --------------
-import random
-n = 10 # number of elements
-x = 7
-list_1 = [0, 1, 2, 3, 4, 5, 5, 5, 6, 6, 6, 9, 9]
-# list_1 = []
-# for i in range(n):
-#     number = random.randrange(0, 10)
-#     list_1.append(number)
-list_1.sort()
-print(list_1)
-if list_1.count(x):
-    print(f'число {x} входит в список') 
-elif x <= min(list_1):
-    print(f'ближайший элемент в списке к числу {x} это: {min(list_1)}')
-elif x >= max(list_1):
-    print(f'ближайший элемент в списке к числу {x} это: {max(list_1)}')
-elif x > min(list_1) and x < max(list_1):
-    for i in range(len(list_1)):
-        if list_1[i] > x and (x - list_1[i-1] <= list_1[i] - x):
-            print(f'ближайший элемент в списке к числу {x} это: {(list_1[i-1])}')
-            break
-        elif list_1[i] > x and (list_1[i] - x < x-list_1[i-1]):
-            print(f'ближайший элемент в списке к числу {x} это: {(list_1[i])}')
-            break
+# import random
+# n = 10 # number of elements
+# x = 7
+# list_1 = [0, 1, 2, 3, 4, 5, 5, 5, 6, 6, 6, 9, 9]
+# # list_1 = []
+# # for i in range(n):
+# #     number = random.randrange(0, 10)
+# #     list_1.append(number)
+# list_1.sort()
+# print(list_1)
+# if list_1.count(x):
+#     print(f'число {x} входит в список') 
+# elif x <= min(list_1):
+#     print(f'ближайший элемент в списке к числу {x} это: {min(list_1)}')
+# elif x >= max(list_1):
+#     print(f'ближайший элемент в списке к числу {x} это: {max(list_1)}')
+# elif x > min(list_1) and x < max(list_1):
+#     for i in range(len(list_1)):
+#         if list_1[i] > x and (x - list_1[i-1] <= list_1[i] - x):
+#             print(f'ближайший элемент в списке к числу {x} это: {(list_1[i-1])}')
+#             break
+#         elif list_1[i] > x and (list_1[i] - x < x-list_1[i-1]):
+#             print(f'ближайший элемент в списке к числу {x} это: {(list_1[i])}')
+#             break
 
 # ------------ ЗАДАЧА --------------
 # Задача 20: В настольной игре Скрабл (Scrabble) каждая буква имеет определенную
@@ -84,21 +84,18 @@ elif x > min(list_1) and x < max(list_1):
 # Вывод:
 # 12
 # ------------ РЕШЕНИЕ --------------
-# dict_1 = {'а':1, 'в':1,'е':1,'и':1,'н':1,'о':1,'р':1,'с':1,'т':1,
-#           'д':2,'к':2,'л':2,'м':2,'п':2,'у':2,
-#           'б':3,'г':3,'ё':3,'ь':3,'я':3,
-#           'й':4,'ы':4,
-#           'ж':5, 'з':5, 'х':5, 'ц':5, 'ч':5,
-#           'ш':8, 'э':8, 'ю':8,
-#           'ф':1, 'щ':1, 'ъ':1,}
-# word = 'ноутбук'
-# print(f'длинна слова {word} : {len(word)} букв')
-# summ = 0
-# for i in range(0, len(word)):
-#     # print(i)
-#     # print(word[i])
-#     # print(dict_1[word[i]])
-#     # print('---')
-#     summ = summ + dict_1[word[i]]
-# print(f'стоимость слова \'{word}\' : {summ} баллов' )
+dict_1 = {'а':1, 'в':1,'е':1,'и':1,'н':1,'о':1,'р':1,'с':1,'т':1,
+          'д':2,'к':2,'л':2,'м':2,'п':2,'у':2,
+          'б':3,'г':3,'ё':3,'ь':3,'я':3,
+          'й':4,'ы':4,
+          'ж':5, 'з':5, 'х':5, 'ц':5, 'ч':5,
+          'ш':8, 'э':8, 'ю':8,
+          'ф':1, 'щ':1, 'ъ':1,}
+word = 'ноутбук'
+text_list = list(word)
+print(f'длинна слова {word} : {len(word)} букв')
+summ = 0
+for i in text_list:
+    summ = summ + dict_1[i]
+print(f'стоимость слова \'{word}\' : {summ} баллов' )
 # ------------ РЕШЕНИЕ --------------

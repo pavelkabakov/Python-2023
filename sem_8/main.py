@@ -9,6 +9,10 @@
 # 3. Пользователь может ввести одну из характеристик для поиска определенной
 # записи(Например имя или фамилию человека)
 # 4. Использование функций. Ваша программа не должна быть линейной
+
+# Задача 38: Дополнить телефонный справочник возможностью изменения и удаления данных.
+# Пользователь также может ввести имя или фамилию, и Вы должны реализовать функционал
+# для изменения и удаления данных.
 # --------------- Решение ------------------
 
 def show_menu() -> int:
@@ -61,13 +65,39 @@ def write_csv(filename: str, data: list):
                 s += v + ','
             fout.write(f'{s[:-1]}\n')
 
+def print_result(data: list):
+    s = ''
+    fields = ["Фамилия", "Имя", "Телефон", "Описание"]
+    for v in fields:
+        s += v + ',' + '\t'
+    print(f'{s[:-1]}\n')
+
+    for i in range(len(data)):
+            s = ''
+            for v in data[i].values():
+                s += v + ',' + '\t'
+            print(f'{s[:-1]}\n')
+
+def find_by_name(phone_book, name):
+
+
+def find_by_number(phone_book, number):
+
+
+def add_user(phone_book, user_data):
+
+
+
+
+
+
 
 import os
-os.chdir('D:\Dev\Python 2023\sem_8')
-print(os.getcwd())
-phone_book = read_csv('phonebook.csv')
-print(phone_book)
-phone_book = {}
+os.chdir('D:\Dev\Python 2023\sem_8') # устанавливаем рабочую директорию
+# print(os.getcwd()) # вывести рабочую директорию
+# phone_book = read_csv('phonebook.csv')
+# print(phone_book)
+# phone_book = {}
 work_with_phonebook()
 
 

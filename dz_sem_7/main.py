@@ -8,7 +8,7 @@
 # функция, которая принимает объект и вычисляет его
 # характеристику.
 # Ввод: values = [0, 2, 10, 6]  Вывод: same
-# -------- Решение -----------
+# ------------ Решение ----------------
 # def same_by(characteristic, objects):
 #     for i in objects:
 #         if (characteristic(objects[0])) != (characteristic(i)):

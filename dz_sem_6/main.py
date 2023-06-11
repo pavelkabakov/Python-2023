@@ -5,7 +5,7 @@
 # Каждое число вводится с новой строки.
 
 # Ввод: 7 2 5
-# Вывод: 7 9 11 13 15
+# # Вывод: 7 9 11 13 15
 # ---- Решение ------
 # a1 = 7
 # d = 2
@@ -31,8 +31,8 @@
 # Вывод: [1, 9, 13, 14, 19]
 
 list_1 = [-5, 9, 0, 3, -1, -2, 1, 4, -2, 10, 2, 0, -9, 8, 10, -9, 0, -5, -5, 7]
-min = 7
-max = 10
+min = 5
+max = 15
 
 def min_max_index(list_1, min, max):
     index_list = []
@@ -40,7 +40,5 @@ def min_max_index(list_1, min, max):
         if list_1[i] >= min and list_1[i] <= max:
             index_list.append(i)
     return index_list
-
-
 
 print(min_max_index(list_1, min, max))

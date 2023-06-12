@@ -164,8 +164,10 @@ def get_search_number():
 def get_file_name():
     name = input("Введите имя файла: ")
     return name
-import os
-os.chdir('D:\Dev\Python 2023\sem_8') # устанавливаем рабочую директорию
+# import os
+# path = os.getcwd() 
+# print(path + '\sem_8')
+# os.chdir(path+ '\sem_8') # устанавливаем рабочую директорию
 # print(os.getcwd()) # вывести рабочую директорию
 work_with_phonebook()
 

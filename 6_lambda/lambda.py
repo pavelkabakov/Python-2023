@@ -23,10 +23,10 @@
 #     print(op(a, b))
 # calc(mylt, 4, 5) # 20
 # ---------то же самое через lambda --------------------------------
-def calc(op, a, b):
-    print(op(a, b))
-calc((lambda x, y: x + y), 4, 5) # 9
-calc((lambda x, y: x * y), 4, 5) # 20
+# def calc(op, a, b):
+#     print(op(a, b))
+# calc((lambda x, y: x + y), 4, 5) # 9
+# calc((lambda x, y: x * y), 4, 5) # 20
 
 # data = [1, 2, 3, 5, 8, 15, 23, 38]
 # out = []

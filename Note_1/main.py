@@ -1,14 +1,11 @@
 """
 работа с заметками
 что еще надо реализовать
-- добавить ограничение на длинну поля 10-40-10-10
 - исключения в случае проблем с файлом
 
 """
 
 from datetime import date
-
-
 
 
 def show_menu() -> int:
@@ -141,11 +138,14 @@ def get_new_user():
     line = {}
     fields = ["Заголовок", "Содержание", "Идентиф.", "Дата"]
     today = date.today()
+    tabs = [10, 40, 10, 10]
+    i=0
     for v in fields:
         if (v == 'Дата'):
             data = str(today)
         else:
-            data = input(f'Введите {v}: ')
+            data = input(f'Введите {v}: ')[:(int(tabs[i]))]
+            i += 1
         line[v] = data
     return line
 

@@ -1,13 +1,3 @@
-"""
-работа с заметками
-что еще надо реализовать
-- исключения в случае проблем с файлом
-
-"""
-
-from datetime import date
-
-
 def show_menu() -> int:
     print("\nВыберите необходимое действие:\n"
           "1. Отобразить все заметки\n"
@@ -26,19 +16,19 @@ def work_with_notebook():
     note_book = read_csv('notebook.csv')
 
     while choice != 7:
-        if choice == 1:  # 1. Отобразить все заметки
+        if choice == 1:  # 1. Отобразить весь справочник
             print_result(note_book)
-        elif choice == 2:  # 2. Найти заметку по заголовку
+        elif choice == 2:  # 2. Найти заметку по фамилии
             name = get_search_header()
             print_result(find_by_header(note_book, name))
-        elif choice == 3:  # 3. Найти заметку по ид
+        elif choice == 3:  # 3. Найти заметку по номеру телефона
             id_note = get_search_number()
             print_result(find_by_id(note_book, id_note))
-        elif choice == 4:  # 4. Добавить заметку
+        elif choice == 4:  # 4. Добавить заметку в справочник
             user_data = get_new_user()
             add_user(note_book, user_data)
             write_csv('notebook.csv', note_book)
-        elif choice == 5:  # 5. Удалить заметку
+        elif choice == 5:  # 5. Удалить заметку из справочника
             name = get_search_header()
             print_result(find_by_header(note_book, name))
             delete_user(note_book, find_by_header(note_book, name))
@@ -51,7 +41,7 @@ def work_with_notebook():
 
 def read_csv(filename: str) -> list:
     data = []
-    fields = ["Заголовок", "Содержание", "Идентиф.", "Дата"]
+    fields = ["Заголовок", "Содержание", "Идентификатор", "Дата"]
     with open(filename, 'r', encoding='utf-8') as fin:
         for line in fin:
             record = dict(zip(fields, line.strip().split(',')))
@@ -74,20 +64,16 @@ def write_txt(filename: str, data: list):
     with open(txt_filename, 'w', encoding='utf-8') as fout:
         s = '│'
         fout.write('┌' + '─' * 10 + '┬' + '─' * 40 + '┬' + '─' * 10 + '┬' + '─' * 10 + '┐' + '\n')
-        fields = ["Заголовок", "Содержание", "Идентиф.", "Дата"]
-        tabs = [10, 40, 10, 10]
-        # for v in fields:
-        s += fields[0].center(10) + "│" + fields[1].center(40) + "│" + fields[2].center(10) + "│" + fields[3].center(
-            10) + "│"
+        fields = ["Заголовок", "Содержание", "Идентификатор", "Дата"]
+        for v in fields:
+            s += v.center(20) + "│"
         fout.write(f'{s}\n')
         fout.write('├' + '─' * 10 + '┼' + '─' * 40 + '┼' + '─' * 10 + '┼' + '─' * 10 + '┤' + '\n')
 
         for i in range(len(data)):
             s = '│'
-            t1 = 0
             for v in data[i].values():
-                s += v.center(tabs[t1]) + "│"
-                t1 += 1
+                s += v.center(20) + "│"
             fout.write(f'{s}\n')
             fout.write('├' + '─' * 10 + '┼' + '─' * 40 + '┼' + '─' * 10 + '┼' + '─' * 10 + '┤' + '\n')
         fout.write(f'Всего сохранено {len(data)} записей')
@@ -96,7 +82,7 @@ def write_txt(filename: str, data: list):
 def print_result(data: list):
     s = "│"
     print('┌' + '─' * 10 + '┬' + '─' * 40 + '┬' + '─' * 10 + '┬' + '─' * 10 + '┐')
-    fields = ["Заголовок", "Содержание", "Идентиф.", "Дата"]
+    fields = ["Заголовок", "Содержание", "Ид.", "Дата"]
     tabs = [10, 40, 10, 10]
 
     # for v in fields:
@@ -128,7 +114,7 @@ def find_by_header(data: list, first_name):
 def find_by_id(data: list, number):
     search_by_number = []
     for line in data:
-        index = line['Идентиф.']
+        index = line['Идентификатор']
         if index.find(number) == 0:
             search_by_number.append(dict(line))
     return search_by_number
@@ -136,16 +122,9 @@ def find_by_id(data: list, number):
 
 def get_new_user():
     line = {}
-    fields = ["Заголовок", "Содержание", "Идентиф.", "Дата"]
-    today = date.today()
-    tabs = [10, 40, 10, 10]
-    i=0
+    fields = ["Заголовок", "Содержание", "Идентификатор", "Дата"]
     for v in fields:
-        if (v == 'Дата'):
-            data = str(today)
-        else:
-            data = input(f'Введите {v}: ')[:(int(tabs[i]))]
-            i += 1
+        data = input(f'Введите {v}: ')
         line[v] = data
     return line
 
@@ -193,8 +172,4 @@ def get_file_name():
 # os.chdir(path+ '\sem_8') # устанавливаем рабочую директорию
 # print(os.getcwd()) # вывести рабочую директорию
 
-# data = []
-# list = {"тестовая", "Заметка про что то","1","23.05.2023"}
-# data.append(list)
-# write_csv('notebook.csv', data)
 work_with_notebook()

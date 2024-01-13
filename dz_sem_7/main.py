@@ -38,13 +38,13 @@
 # Ввод: пара-ра-рам рам-пам-папам па-ра-па-дам 
 # Вывод: Парам пам-пам
 # -------------- Решение ---------------------
-input = "пара-ра-рам рам-пам-папам па-ра-па-дам"
-letters = ['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е']
-a = list(map(lambda x: len(list(filter(lambda y: y in letters, x))), input.split()))
-if max(a) == min(a):
-    print("Парам пам-пам")
-else:
-    print("Пам парам")
+# input = "пара-ра-рам рам-пам-папам па-ра-па-дам"
+# letters = ['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е']
+# a = list(map(lambda x: len(list(filter(lambda y: y in letters, x))), input.split()))
+# if max(a) == min(a):
+#     print("Парам пам-пам")
+# else:
+#     print("Пам парам")
 
 # input = "пара-ра-рам рам-пам-папам па-ра-па-дам"
 # for i in phrases:
@@ -73,8 +73,8 @@ else:
 # 6 12 18 24 30 36
 # ----------- Решение ---------------------
 
-# def print_operation_table(operation, num_rows=6, num_columns=6):
-#     for i in range(1, num_rows + 1):
-#         print(*list(map(operation, [i] * num_columns, range(1, num_columns + 1))))
+def print_operation_table(operation, num_rows=6, num_columns=6):
+    for i in range(1, num_rows + 1):
+        print(*list(map(operation, [i] * num_columns, range(1, num_columns + 1))))
 
-# print_operation_table(lambda x, y: x * y)
+print_operation_table(lambda x, y: x * y)
